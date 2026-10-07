@@ -101,20 +101,52 @@ if (analyzeButton) {
                 >
 
                     <option value="">
-                        Select target role
-                    </option>
+    Select target role
+</option>
 
-                    <option value="AI Engineer">
-                        AI Engineer
-                    </option>
+<option value="AI Engineer">
+    AI Engineer
+</option>
 
-                    <option value="Data Scientist">
-                        Data Scientist
-                    </option>
+<option value="Machine Learning Engineer">
+    Machine Learning Engineer
+</option>
 
-                    <option value="Backend Developer">
-                        Backend Developer
-                    </option>
+<option value="Data Scientist">
+    Data Scientist
+</option>
+
+<option value="Data Analyst">
+    Data Analyst
+</option>
+
+<option value="Backend Developer">
+    Backend Developer
+</option>
+
+<option value="Full Stack Developer">
+    Full Stack Developer
+</option>
+
+<option value="Frontend Developer">
+    Frontend Developer
+</option>
+
+<option value="DevOps Engineer">
+    DevOps Engineer
+</option>
+
+<option value="Cloud Engineer">
+    Cloud Engineer
+</option>
+
+<option value="NLP Engineer">
+    NLP Engineer
+</option>
+
+<option value="Computer Vision Engineer">
+    Computer Vision Engineer
+</option>
 
                 </select>
 
