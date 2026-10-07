@@ -857,8 +857,10 @@ if (analyzeButton) {
                                        VERIFIED
                                     ========================= */
 
-                                    if (githubData.verified) {
-
+if (
+    githubData.verified === true ||
+    Number(githubData.evidence_score) >= 60
+) {
                                         githubResult.innerHTML = `
 
                                             <div style="
