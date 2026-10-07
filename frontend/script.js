@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://sabit-301w.onrender.com";
 const analyzeButton = document.querySelector(".primary-button");
 
 if (analyzeButton) {
@@ -236,7 +237,7 @@ if (analyzeButton) {
 
                     // Call backend
                     const response = await fetch(
-                        "http://127.0.0.1:8000/skill-gap",
+                        "https://sabit-301w.onrender.com/skill-gap",
                         {
                             method: "POST",
                             body: formData
@@ -577,8 +578,7 @@ if (analyzeButton) {
 
                                     const projectResponse =
                                         await fetch(
-                                            `http://127.0.0.1:8000/micro-project/${encodeURIComponent(skill)}`
-                                        );
+`https://sabit-301w.onrender.com/micro-project/${encodeURIComponent(skill)}`                                        );
 
 
                                     const project =
@@ -698,8 +698,7 @@ if (verifyGithubButton) {
             try {
 
                 const response = await fetch(
-                    `http://127.0.0.1:8000/verify-github?repo_url=${encodeURIComponent(repoUrl)}`
-                );
+`https://sabit-301w.onrender.com/verify-github?repo_url=${encodeURIComponent(repoUrl)}`                );
 
                 const result =
                     await response.json();
@@ -816,8 +815,7 @@ if (readinessDisplay) {
         }
 
         const readinessResponse = await fetch(
-            "http://127.0.0.1:8000/readiness",
-            {
+       "https://sabit-301w.onrender.com/readiness",           {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -899,8 +897,7 @@ passportButton.addEventListener("click", async function () {
     try {
 
         const passportResponse = await fetch(
-            "http://127.0.0.1:8000/skill-passport",
-            {
+       "https://sabit-301w.onrender.com/skill-passport",          {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
