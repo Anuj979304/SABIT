@@ -1,4 +1,5 @@
 const API_BASE_URL = "https://sabit-301w.onrender.com";
+
 const analyzeButton = document.querySelector(".primary-button");
 
 if (analyzeButton) {
@@ -23,52 +24,73 @@ if (analyzeButton) {
 
         panel.innerHTML = `
             <div style="
-                background: white;
-                width: 90%;
-                max-width: 500px;
-                padding: 30px;
-                border-radius: 16px;
-                position: relative;
-                box-sizing: border-box;
+                background:white;
+                width:90%;
+                max-width:500px;
+                padding:30px;
+                border-radius:16px;
+                position:relative;
+                box-sizing:border-box;
             ">
 
                 <button
                     id="closePanel"
+                    type="button"
                     style="
-                        position: absolute;
-                        right: 15px;
-                        top: 10px;
-                        border: none;
-                        background: none;
-                        font-size: 28px;
-                        cursor: pointer;
+                        position:absolute;
+                        right:15px;
+                        top:10px;
+                        border:none;
+                        background:none;
+                        font-size:28px;
+                        cursor:pointer;
                     "
-                >
-                    ×
-                </button>
+                >×</button>
 
                 <div style="
-                    font-size: 12px;
-                    font-weight: bold;
-                    letter-spacing: 2px;
-                    margin-bottom: 12px;
+                    font-size:12px;
+                    font-weight:bold;
+                    letter-spacing:2px;
+                    margin-bottom:12px;
                 ">
                     SABIT ANALYSIS
                 </div>
 
-                <h2>
-                    Let's prove your skills.
-                </h2>
+                <h2>Let's prove your skills.</h2>
 
-                <p style="color: #666; line-height: 1.5;">
-                    Upload your resume and choose your target role.
+                <p style="
+                    color:#666;
+                    line-height:1.5;
+                ">
+                    Enter your name, upload your resume and choose your target role.
                 </p>
 
                 <label style="
-                    display: block;
-                    margin-top: 25px;
-                    margin-bottom: 8px;
-                    font-weight: bold;
+                    display:block;
+                    margin-top:25px;
+                    margin-bottom:8px;
+                    font-weight:bold;
+                ">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your name"
+                    style="
+                        width:100%;
+                        padding:12px;
+                        border:1px solid #ccc;
+                        box-sizing:border-box;
+                    "
+                >
+
+                <label style="
+                    display:block;
+                    margin-top:25px;
+                    margin-bottom:8px;
+                    font-weight:bold;
                 ">
                     Resume PDF
                 </label>
@@ -77,14 +99,14 @@ if (analyzeButton) {
                     type="file"
                     id="resumeFile"
                     accept=".pdf"
-                    style="width: 100%;"
+                    style="width:100%;"
                 >
 
                 <label style="
-                    display: block;
-                    margin-top: 25px;
-                    margin-bottom: 8px;
-                    font-weight: bold;
+                    display:block;
+                    margin-top:25px;
+                    margin-bottom:8px;
+                    font-weight:bold;
                 ">
                     Target Role
                 </label>
@@ -92,76 +114,77 @@ if (analyzeButton) {
                 <select
                     id="targetRole"
                     style="
-                        width: 100%;
-                        padding: 12px;
-                        border: 1px solid #ccc;
-                        border-radius: 8px;
-                        box-sizing: border-box;
+                        width:100%;
+                        padding:12px;
+                        border:1px solid #ccc;
+                        border-radius:8px;
+                        box-sizing:border-box;
                     "
                 >
 
                     <option value="">
-    Select target role
-</option>
+                        Select target role
+                    </option>
 
-<option value="AI Engineer">
-    AI Engineer
-</option>
+                    <option value="AI Engineer">
+                        AI Engineer
+                    </option>
 
-<option value="Machine Learning Engineer">
-    Machine Learning Engineer
-</option>
+                    <option value="Machine Learning Engineer">
+                        Machine Learning Engineer
+                    </option>
 
-<option value="Data Scientist">
-    Data Scientist
-</option>
+                    <option value="Data Scientist">
+                        Data Scientist
+                    </option>
 
-<option value="Data Analyst">
-    Data Analyst
-</option>
+                    <option value="Data Analyst">
+                        Data Analyst
+                    </option>
 
-<option value="Backend Developer">
-    Backend Developer
-</option>
+                    <option value="Backend Developer">
+                        Backend Developer
+                    </option>
 
-<option value="Full Stack Developer">
-    Full Stack Developer
-</option>
+                    <option value="Full Stack Developer">
+                        Full Stack Developer
+                    </option>
 
-<option value="Frontend Developer">
-    Frontend Developer
-</option>
+                    <option value="Frontend Developer">
+                        Frontend Developer
+                    </option>
 
-<option value="DevOps Engineer">
-    DevOps Engineer
-</option>
+                    <option value="DevOps Engineer">
+                        DevOps Engineer
+                    </option>
 
-<option value="Cloud Engineer">
-    Cloud Engineer
-</option>
+                    <option value="Cloud Engineer">
+                        Cloud Engineer
+                    </option>
 
-<option value="NLP Engineer">
-    NLP Engineer
-</option>
+                    <option value="NLP Engineer">
+                        NLP Engineer
+                    </option>
 
-<option value="Computer Vision Engineer">
-    Computer Vision Engineer
-</option>
+                    <option value="Computer Vision Engineer">
+                        Computer Vision Engineer
+                    </option>
 
                 </select>
 
                 <button
                     id="startAnalysis"
+                    type="button"
                     style="
-                        width: 100%;
-                        margin-top: 25px;
-                        padding: 14px;
-                        background: #111;
-                        color: white;
-                        border: none;
-                        border-radius: 8px;
-                        cursor: pointer;
-                        font-weight: bold;
+                        width:100%;
+                        margin-top:25px;
+                        padding:14px;
+                        background:#111;
+                        color:white;
+                        border:none;
+                        border-radius:8px;
+                        cursor:pointer;
+                        font-weight:bold;
                     "
                 >
                     Analyze Resume →
@@ -169,7 +192,7 @@ if (analyzeButton) {
 
                 <div
                     id="analysisMessage"
-                    style="margin-top: 20px;"
+                    style="margin-top:20px;"
                 ></div>
 
             </div>
@@ -177,18 +200,13 @@ if (analyzeButton) {
 
         document.body.appendChild(panel);
 
+        const closePanel =
+            document.getElementById("closePanel");
 
-        // Close panel
-        document
-            .getElementById("closePanel")
-            .addEventListener("click", function () {
+        closePanel.addEventListener("click", function () {
+            panel.remove();
+        });
 
-                panel.remove();
-
-            });
-
-
-        // Start analysis
         const startAnalysisButton =
             document.getElementById("startAnalysis");
 
@@ -196,21 +214,46 @@ if (analyzeButton) {
             "click",
             async function () {
 
-                const file =
-                    document.getElementById("resumeFile").files[0];
+                const fileInput =
+                    document.getElementById("resumeFile");
 
-                const role =
-                    document.getElementById("targetRole").value;
+                const nameInput =
+                    document.getElementById("studentName");
+
+                const roleInput =
+                    document.getElementById("targetRole");
 
                 const message =
                     document.getElementById("analysisMessage");
 
+                const file =
+                    fileInput.files[0];
 
-                // Check resume
+                const studentName =
+                    nameInput.value.trim();
+
+                const role =
+                    roleInput.value;
+
+                /* =========================
+                   VALIDATION
+                ========================= */
+
+                if (!studentName) {
+
+                    message.innerHTML = `
+                        <p style="color:#b42318;">
+                            Please enter your name.
+                        </p>
+                    `;
+
+                    return;
+                }
+
                 if (!file) {
 
                     message.innerHTML = `
-                        <p style="color: #b42318;">
+                        <p style="color:#b42318;">
                             Please upload your resume.
                         </p>
                     `;
@@ -218,12 +261,13 @@ if (analyzeButton) {
                     return;
                 }
 
-
-                // Check PDF
-                if (file.type !== "application/pdf") {
+                if (
+                    file.type !== "application/pdf" &&
+                    !file.name.toLowerCase().endsWith(".pdf")
+                ) {
 
                     message.innerHTML = `
-                        <p style="color: #b42318;">
+                        <p style="color:#b42318;">
                             Please upload a PDF resume.
                         </p>
                     `;
@@ -231,12 +275,10 @@ if (analyzeButton) {
                     return;
                 }
 
-
-                // Check target role
                 if (!role) {
 
                     message.innerHTML = `
-                        <p style="color: #b42318;">
+                        <p style="color:#b42318;">
                             Please select your target role.
                         </p>
                     `;
@@ -244,53 +286,80 @@ if (analyzeButton) {
                     return;
                 }
 
+                /* =========================
+                   UPDATE PROFILE NAME
+                ========================= */
 
-                // Prepare request
-                const formData = new FormData();
+                const profileName =
+                    document.getElementById("profileName");
 
-                formData.append("file", file);
-                formData.append("target_role", role);
+                const passportName =
+                    document.getElementById("passportName");
 
+                if (profileName) {
+                    profileName.textContent =
+                        studentName.toUpperCase();
+                }
+
+                if (passportName) {
+                    passportName.textContent =
+                        studentName.toUpperCase();
+                }
+
+                /* =========================
+                   FORM DATA
+                ========================= */
+
+                const formData =
+                    new FormData();
+
+                formData.append(
+                    "file",
+                    file
+                );
+
+                formData.append(
+                    "target_role",
+                    role
+                );
 
                 message.innerHTML = `
-                    <p style="color: #555;">
+                    <p style="color:#555;">
                         SABIT is analyzing your resume...
                     </p>
                 `;
-
 
                 startAnalysisButton.disabled = true;
 
                 startAnalysisButton.textContent =
                     "Analyzing...";
 
-
                 try {
 
-                    // Call backend
-                    const response = await fetch(
-                        "https://sabit-301w.onrender.com/skill-gap",
-                        {
-                            method: "POST",
-                            body: formData
-                        }
-                    );
+                    /* =========================
+                       SKILL GAP API
+                    ========================= */
 
+                    const response =
+                        await fetch(
+                            `${API_BASE_URL}/skill-gap`,
+                            {
+                                method:"POST",
+                                body:formData
+                            }
+                        );
 
                     const result =
                         await response.json();
 
-
                     if (!response.ok) {
 
                         throw new Error(
-                            result.detail || "Analysis failed."
+                            result.detail ||
+                            "Analysis failed."
                         );
-
                     }
 
-
-                    // Get skills
                     const foundSkills =
                         result.student_skills || [];
 
@@ -298,10 +367,8 @@ if (analyzeButton) {
                         result.required_skills || [];
 
                     const skillGaps =
-                        result.skill_gaps || [];
+                        result.missing_skills || [];
 
-
-                    // Readiness score
                     const readinessScore =
                         requiredSkills.length > 0
                             ? Math.round(
@@ -315,41 +382,44 @@ if (analyzeButton) {
                             )
                             : 0;
 
+                    /* =========================
+                       PROOF PROJECT CARD
+                    ========================= */
 
-                    // Proof Lab
                     let proofProject = "";
-
 
                     if (skillGaps.length > 0) {
 
                         proofProject = `
-
-                            <div style="
-                                margin-top: 20px;
-                                padding: 18px;
-                                background: #111;
-                                color: white;
-                                border-radius: 12px;
-                            ">
+                            <div
+                                id="proofLabCard"
+                                style="
+                                    margin-top:20px;
+                                    padding:18px;
+                                    background:#111;
+                                    color:white;
+                                    border-radius:12px;
+                                "
+                            >
 
                                 <div style="
-                                    font-size: 11px;
-                                    letter-spacing: 1.5px;
-                                    color: #aaa;
-                                    margin-bottom: 8px;
+                                    font-size:11px;
+                                    letter-spacing:1.5px;
+                                    color:#aaa;
+                                    margin-bottom:8px;
                                 ">
                                     PROOF LAB
                                 </div>
 
                                 <h3 style="
-                                    margin: 0 0 8px 0;
+                                    margin:0 0 8px 0;
                                 ">
                                     Prove your ${skillGaps[0]} skill
                                 </h3>
 
                                 <p style="
-                                    color: #ccc;
-                                    line-height: 1.5;
+                                    color:#ccc;
+                                    line-height:1.5;
                                 ">
                                     Build a practical project to create
                                     real evidence for this skill.
@@ -357,104 +427,103 @@ if (analyzeButton) {
 
                                 <button
                                     id="openProofLab"
+                                    type="button"
                                     style="
-                                        padding: 10px 16px;
-                                        border: none;
-                                        border-radius: 8px;
-                                        background: white;
-                                        color: #111;
-                                        cursor: pointer;
-                                        font-weight: bold;
+                                        padding:10px 16px;
+                                        border:none;
+                                        border-radius:8px;
+                                        background:white;
+                                        color:#111;
+                                        cursor:pointer;
+                                        font-weight:bold;
                                     "
                                 >
                                     Start Proof Project →
                                 </button>
 
                             </div>
-
                         `;
-
                     }
 
+                    /* =========================
+                       ANALYSIS RESULT
+                    ========================= */
 
-                    // Show analysis
                     message.innerHTML = `
 
                         <div style="
-                            margin-top: 20px;
-                            padding: 24px;
-                            background: #f7f7f4;
-                            border: 1px solid #e5e5e5;
-                            border-radius: 16px;
+                            margin-top:20px;
+                            padding:24px;
+                            background:#f7f7f4;
+                            border:1px solid #e5e5e5;
+                            border-radius:16px;
                         ">
 
                             <div style="
-                                font-size: 11px;
-                                font-weight: bold;
-                                letter-spacing: 1.5px;
-                                color: #777;
-                                margin-bottom: 8px;
+                                font-size:11px;
+                                font-weight:bold;
+                                letter-spacing:1.5px;
+                                color:#777;
+                                margin-bottom:8px;
                             ">
                                 SABIT READINESS ANALYSIS
                             </div>
 
                             <h3 style="
-                                margin: 0 0 20px 0;
+                                margin:0 0 20px 0;
                             ">
                                 ${result.target_role}
                             </h3>
 
-
                             <div style="
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                margin-bottom: 20px;
+                                display:flex;
+                                justify-content:space-between;
+                                align-items:center;
+                                margin-bottom:20px;
                             ">
 
-                                <span style="color: #666;">
+                                <span style="color:#666;">
                                     Current readiness
                                 </span>
 
-                                <strong 
-                                id="readinessScoreDisplay"
-                                style="font-size: 24px;"
-                          > 
+                                <strong
+                                    id="readinessScoreDisplay"
+                                    style="font-size:24px;"
+                                >
                                     ${readinessScore}%
                                 </strong>
 
                             </div>
 
-
                             <div style="
-                                height: 8px;
-                                background: #e5e5e5;
-                                border-radius: 10px;
-                                overflow: hidden;
-                                margin-bottom: 24px;
+                                height:8px;
+                                background:#e5e5e5;
+                                border-radius:10px;
+                                overflow:hidden;
+                                margin-bottom:24px;
                             ">
 
-                                <div style="
-                                    width: ${readinessScore}%;
-                                    height: 100%;
-                                    background: #111;
-                                    border-radius: 10px;
-                                "></div>
+                                <div
+                                    id="readinessProgress"
+                                    style="
+                                        width:${readinessScore}%;
+                                        height:100%;
+                                        background:#111;
+                                        border-radius:10px;
+                                    "
+                                ></div>
 
                             </div>
 
-
-                            <div style="
-                                margin-bottom: 20px;
-                            ">
+                            <div style="margin-bottom:20px;">
 
                                 <strong>
                                     Skills found
                                 </strong>
 
                                 <p style="
-                                    color: #333;
-                                    line-height: 1.6;
+                                    color:#333;
+                                    line-height:1.6;
                                 ">
                                     ${
                                         foundSkills.length
@@ -465,18 +534,15 @@ if (analyzeButton) {
 
                             </div>
 
-
-                            <div style="
-                                margin-bottom: 20px;
-                            ">
+                            <div style="margin-bottom:20px;">
 
                                 <strong>
                                     Skills to prove
                                 </strong>
 
                                 <p style="
-                                    color: #b45309;
-                                    line-height: 1.6;
+                                    color:#b45309;
+                                    line-height:1.6;
                                 ">
                                     ${
                                         skillGaps.length
@@ -487,12 +553,11 @@ if (analyzeButton) {
 
                             </div>
 
-
                             <div style="
-                                padding: 16px;
-                                background: white;
-                                border: 1px solid #e5e5e5;
-                                border-radius: 12px;
+                                padding:16px;
+                                background:white;
+                                border:1px solid #e5e5e5;
+                                border-radius:12px;
                             ">
 
                                 <strong>
@@ -500,9 +565,9 @@ if (analyzeButton) {
                                 </strong>
 
                                 <p style="
-                                    margin-bottom: 0;
-                                    color: #555;
-                                    line-height: 1.6;
+                                    margin-bottom:0;
+                                    color:#555;
+                                    line-height:1.6;
                                 ">
                                     ${
                                         skillGaps.length
@@ -516,79 +581,84 @@ if (analyzeButton) {
                         </div>
 
                         ${proofProject}
-<div style="
-    margin-top: 16px;
-    padding: 20px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-">
 
-    <div style="
-        font-size: 11px;
-        font-weight: bold;
-        letter-spacing: 1.5px;
-        color: #777;
-        margin-bottom: 8px;
-    ">
-        EVIDENCE SUBMISSION
-    </div>
+                        <div style="
+                            margin-top:16px;
+                            padding:20px;
+                            background:white;
+                            border:1px solid #ddd;
+                            border-radius:12px;
+                        ">
 
-    <h3 style="margin-top: 0;">
-        Prove it on GitHub
-    </h3>
+                            <div style="
+                                font-size:11px;
+                                font-weight:bold;
+                                letter-spacing:1.5px;
+                                color:#777;
+                                margin-bottom:8px;
+                            ">
+                                EVIDENCE SUBMISSION
+                            </div>
 
-    <p style="
-        color: #555;
-        line-height: 1.6;
-    ">
-        Submit your project repository so SABIT can check your evidence.
-    </p>
+                            <h3 style="margin-top:0;">
+                                Prove it on GitHub
+                            </h3>
 
-    <input
-        id="githubRepoUrl"
-        type="text"
-        placeholder="https://github.com/username/repository"
-        style="
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-        "
-    >
+                            <p style="
+                                color:#555;
+                                line-height:1.6;
+                            ">
+                                Submit your project repository so SABIT
+                                can check your evidence.
+                            </p>
 
-    <button
-        id="verifyGithub"
-        style="
-            width: 100%;
-            margin-top: 12px;
-            padding: 13px;
-            background: #111;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        "
-    >
-        Verify GitHub Project →
-    </button>
+                            <input
+                                id="githubRepoUrl"
+                                type="text"
+                                placeholder="https://github.com/username/repository"
+                                style="
+                                    width:100%;
+                                    padding:12px;
+                                    border:1px solid #ccc;
+                                    border-radius:8px;
+                                    box-sizing:border-box;
+                                "
+                            >
 
-    <div
-        id="githubResult"
-        style="margin-top: 12px;"
-    ></div>
+                            <button
+                                id="verifyGithub"
+                                type="button"
+                                style="
+                                    width:100%;
+                                    margin-top:12px;
+                                    padding:13px;
+                                    background:#111;
+                                    color:white;
+                                    border:none;
+                                    border-radius:8px;
+                                    cursor:pointer;
+                                    font-weight:bold;
+                                "
+                            >
+                                Verify GitHub Project →
+                            </button>
 
-</div>
+                            <div
+                                id="githubResult"
+                                style="margin-top:12px;"
+                            ></div>
 
+                        </div>
                     `;
 
+                    /* =================================
+                       PROOF LAB
+                    ================================= */
 
-                    // Proof Lab button
                     const proofButton =
-                        document.getElementById("openProofLab");
-
+                        document.getElementById(
+                            "openProofLab"
+                        );
 
                     if (proofButton) {
 
@@ -599,23 +669,25 @@ if (analyzeButton) {
                                 const skill =
                                     skillGaps[0];
 
+                                if (!skill) {
+                                    return;
+                                }
 
-                                proofButton.disabled = true;
+                                proofButton.disabled =
+                                    true;
 
                                 proofButton.textContent =
                                     "Loading proof project...";
-
 
                                 try {
 
                                     const projectResponse =
                                         await fetch(
-`https://sabit-301w.onrender.com/micro-project/${encodeURIComponent(skill)}`                                        );
-
+                                            `${API_BASE_URL}/micro-project/${encodeURIComponent(skill)}`
+                                        );
 
                                     const project =
                                         await projectResponse.json();
-
 
                                     if (!projectResponse.ok) {
 
@@ -623,441 +695,623 @@ if (analyzeButton) {
                                             project.detail ||
                                             "Unable to load project."
                                         );
-
                                     }
-
 
                                     proofButton.textContent =
                                         "Project Loaded ✓";
 
+                                    const oldTask =
+                                        document.getElementById(
+                                            "proofTask"
+                                        );
 
-                                    // Show proof project
-                                    message.innerHTML += `
+                                    if (oldTask) {
+                                        oldTask.remove();
+                                    }
 
-                                        <div style="
-                                            margin-top: 16px;
-                                            padding: 20px;
-                                            background: white;
-                                            border: 1px solid #ddd;
-                                            border-radius: 12px;
-                                        ">
+                                    const proofTask =
+                                        document.createElement(
+                                            "div"
+                                        );
 
-                                            <div style="
-                                                font-size: 11px;
-                                                font-weight: bold;
-                                                letter-spacing: 1.5px;
-                                                color: #777;
-                                                margin-bottom: 8px;
-                                            ">
-                                                YOUR PROOF TASK
-                                            </div>
+                                    proofTask.id =
+                                        "proofTask";
 
-                                            <h3 style="
-                                                margin-top: 0;
-                                                margin-bottom: 10px;
-                                            ">
-                                                ${
-                                                    project.title ||
-                                                    "Proof Project"
-                                                }
-                                            </h3>
-
-                                            <p style="
-                                                color: #555;
-                                                line-height: 1.6;
-                                            ">
-                                                ${
-                                                    project.description ||
-                                                    "Complete this project to prove your skill."
-                                                }
-                                            </p>
-
-                                        </div>
-
+                                    proofTask.style.cssText = `
+                                        margin-top:16px;
+                                        padding:18px;
+                                        background:#ffffff;
+                                        color:#111111;
+                                        border:1px solid #dddddd;
+                                        border-radius:10px;
                                     `;
 
+                                    proofTask.innerHTML = `
+                                        <div style="
+                                            font-size:11px;
+                                            font-weight:bold;
+                                            letter-spacing:1.5px;
+                                            color:#777;
+                                            margin-bottom:8px;
+                                        ">
+                                            YOUR PROOF TASK
+                                        </div>
+
+                                        <h3 style="
+                                            margin:0 0 10px 0;
+                                        ">
+                                            ${project.title || "Proof Project"}
+                                        </h3>
+
+                                        <p style="
+                                            margin:0;
+                                            color:#555;
+                                            line-height:1.6;
+                                        ">
+                                            ${
+                                                project.description ||
+                                                "Complete this project to prove your skill."
+                                            }
+                                        </p>
+                                    `;
+
+                                    const proofCard =
+                                        document.getElementById(
+                                            "proofLabCard"
+                                        );
+
+                                    if (proofCard) {
+
+                                        proofCard.appendChild(
+                                            proofTask
+                                        );
+                                    }
 
                                 } catch (error) {
 
-                                    console.error(error);
+                                    console.error(
+                                        "Proof project error:",
+                                        error
+                                    );
 
-                                    proofButton.disabled = false;
+                                    proofButton.disabled =
+                                        false;
 
                                     proofButton.textContent =
-                                        "Unable to load project.";
-
+                                        "Start Proof Project →";
                                 }
-
                             }
                         );
-
                     }
-// GitHub verification
-const verifyGithubButton =
-    document.getElementById("verifyGithub");
 
-if (verifyGithubButton) {
+                    /* =================================
+                       GITHUB VERIFICATION
+                    ================================= */
 
-    verifyGithubButton.addEventListener(
-        "click",
-        async function () {
+                    const verifyGithubButton =
+                        document.getElementById(
+                            "verifyGithub"
+                        );
 
-            const repoUrl =
-                document.getElementById("githubRepoUrl").value.trim();
+                    if (verifyGithubButton) {
 
-            const githubResult =
-                document.getElementById("githubResult");
+                        verifyGithubButton.addEventListener(
+                            "click",
+                            async function () {
 
-            if (!repoUrl) {
+                                const repoInput =
+                                    document.getElementById(
+                                        "githubRepoUrl"
+                                    );
 
-                githubResult.innerHTML = `
-                    <p style="color: #b42318;">
-                        Please enter your GitHub repository URL.
-                    </p>
-                `;
+                                const githubResult =
+                                    document.getElementById(
+                                        "githubResult"
+                                    );
 
-                return;
-            }
+                                const repoUrl =
+                                    repoInput.value.trim();
 
-            githubResult.innerHTML = `
-                <p style="color: #555;">
-                    Checking your GitHub repository...
-                </p>
-            `;
+                                if (!repoUrl) {
 
-            verifyGithubButton.disabled = true;
+                                    githubResult.innerHTML = `
+                                        <p style="color:#b42318;">
+                                            Please enter your GitHub repository URL.
+                                        </p>
+                                    `;
 
-            try {
-
-                const response = await fetch(
-`https://sabit-301w.onrender.com/verify-github?repo_url=${encodeURIComponent(repoUrl)}`                );
-
-                const result =
-                    await response.json();
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        result.detail ||
-                        "GitHub verification failed."
-                    );
-
-                }
-
-                if (result.verified) {
-
-                    githubResult.innerHTML = `
-    <div style="
-        padding: 16px;
-        background: #f0fdf4;
-        border: 1px solid #bbf7d0;
-        border-radius: 10px;
-        color: #166534;
-    ">
-
-        <strong style="font-size: 16px;">
-            ✓ Project Evidence Verified
-        </strong>
-
-        <p style="
-            margin-top: 8px;
-            margin-bottom: 14px;
-        ">
-            SABIT verified evidence from your GitHub repository.
-        </p>
-
-        <div style="
-            display: grid;
-            gap: 8px;
-            font-size: 13px;
-            color: #374151;
-        ">
-
-            <div>
-                <strong>Evidence quality:</strong>
-                ${result.evidence_score}/100
-            </div>
-
-            <div>
-                <strong>Languages:</strong>
-                ${
-                    result.languages &&
-                    result.languages.length > 0
-                        ? result.languages.join(", ")
-                        : "Not detected"
-                }
-            </div>
-
-            <div>
-                <strong>Commits checked:</strong>
-                ${result.commit_count || 0}
-            </div>
-
-            <div>
-                <strong>Source-code evidence:</strong>
-${
-    result.evidence_files &&
-    result.evidence_files.some(
-        file => file.endsWith(".py")
-    )
-        ? result.evidence_files
-            .filter(file => file.endsWith(".py"))
-            .join(", ")
-        : "Python implementation detected"
-}
-
-<br>
-
-<strong>Dependency evidence:</strong>
-${
-    result.evidence_files &&
-    result.evidence_files.includes("requirements.txt")
-        ? "requirements.txt"
-        : "None"
-}
-            </div>
-
-        </div>
-
-    </div>
-`;
-
-                    verifyGithubButton.textContent =
-                        "GitHub Verified ✓";
-                     const readinessDisplay =
-    document.getElementById("readinessScoreDisplay");
-
-if (readinessDisplay) {
-
-    try {
-
-        const verifiedSkills =
-            requiredSkills.filter(
-                skill => !skillGaps.includes(skill)
-            );
-
-        if (
-            !verifiedSkills.some(
-                skill =>
-                    skill.toLowerCase() ===
-                    "deep learning"
-            )
-        ) {
-            verifiedSkills.push("Deep Learning");
-        }
-
-        const readinessResponse = await fetch(
-       "https://sabit-301w.onrender.com/readiness",           {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    required_skills: requiredSkills,
-                    verified_skills: verifiedSkills,
-                    project_completed: true,
-                    github_verified: true
-                })
-            }
-        );
-
-        const readinessData =
-            await readinessResponse.json();
-
-        if (!readinessResponse.ok) {
-            throw new Error(
-                readinessData.detail ||
-                "Could not calculate readiness score."
-            );
-        }
-
-        const verifiedScore =
-            readinessData.readiness_score;
-
-        readinessDisplay.textContent =
-            `${verifiedScore}%`;
-
-        const scoreMessage =
-            document.createElement("div");
-
-        scoreMessage.style.cssText = `
-            margin-top: 8px;
-            font-size: 13px;
-            color: #166534;
-            font-weight: 600;
-        `;
-
-        scoreMessage.textContent =
-            `Readiness updated · GitHub evidence verified`;
-
-        readinessDisplay.parentElement.appendChild(
-            scoreMessage
-        );
-
-    } catch (error) {
-
-        console.error(
-            "Readiness calculation error:",
-            error
-        );
-
-    }
-}
-                   const passportButton = document.createElement("button");
-
-passportButton.textContent =
-    "Add to Skill Passport →";
-
-passportButton.style.cssText = `
-    margin-top: 12px;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    background: #111827;
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
-`;
-
-githubResult.appendChild(passportButton);
-
-passportButton.addEventListener("click", async function () {
-
-    passportButton.disabled = true;
-    passportButton.textContent = "Adding to Passport...";
-
-    try {
-
-        const passportResponse = await fetch(
-       "https://sabit-301w.onrender.com/skill-passport",          {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    student_name: "SUMIT SHUKLA",
-                    verified_skills: ["Deep Learning"],
-                    learning_skills: []
-                })
-            }
-        );
-
-        const passportData =
-            await passportResponse.json();
-
-        if (!passportResponse.ok) {
-            throw new Error(
-                passportData.detail ||
-                "Could not create Skill Passport."
-            );
-        }
-
-        passportButton.textContent =
-            "✓ Added to Skill Passport";
-            
-const passportSkills =
-    document.getElementById("passportSkills");
-
-if (passportSkills) {
-
-    const existingSkills =
-        Array.from(
-            passportSkills.querySelectorAll(
-                ".passport-skill span"
-            )
-        ).map(
-            skill => skill.textContent.trim().toLowerCase()
-        );
-
-    if (!existingSkills.includes("deep learning")) {
-
-        const newSkill =
-            document.createElement("div");
-
-        newSkill.className =
-            "passport-skill";
-
-        newSkill.innerHTML = `
-            <span>Deep Learning</span>
-            <b>VERIFIED ✓</b>
-        `;
-
-        passportSkills.appendChild(newSkill);
-    }
-}
-
-
-        passportButton.style.background =
-            "#166534";
-
-    } catch (error) {
-
-        passportButton.disabled = false;
-
-        passportButton.textContent =
-            "Add to Skill Passport →";
-
-        alert(error.message);
-
-    }
-
-});     
-
-
-                } else {
-
-                    githubResult.innerHTML = `
-                        <div style="
-                            padding: 14px;
-                            background: #fff7ed;
-                            border: 1px solid #fed7aa;
-                            border-radius: 10px;
-                            color: #9a3412;
-                        ">
-                            <strong>
-                                Evidence not verified
-                            </strong>
-
-                            <p style="margin-bottom: 0;">
-                                ${
-                                    result.message ||
-                                    "Required evidence is missing."
+                                    return;
                                 }
-                            </p>
-                        </div>
-                    `;
 
-                }
+                                verifyGithubButton.disabled =
+                                    true;
 
-            } catch (error) {
+                                verifyGithubButton.textContent =
+                                    "Checking repository...";
 
-                console.error(error);
+                                githubResult.innerHTML = `
+                                    <p style="color:#555;">
+                                        Checking your GitHub repository...
+                                    </p>
+                                `;
 
-                githubResult.innerHTML = `
-                    <p style="color: #b42318;">
-                        ${error.message}
-                    </p>
-                `;
+                                try {
 
-            } finally {
+                                    const response =
+                                        await fetch(
+                                            `${API_BASE_URL}/verify-github?repo_url=${encodeURIComponent(repoUrl)}`
+                                        );
 
-                verifyGithubButton.disabled = false;
+                                    const githubData =
+                                        await response.json();
 
-            }
+                                    if (!response.ok) {
 
-        }
-    );
+                                        throw new Error(
+                                            githubData.detail ||
+                                            "GitHub verification failed."
+                                        );
+                                    }
 
-}
+                                    /* =========================
+                                       VERIFIED
+                                    ========================= */
+
+                                    if (githubData.verified) {
+
+                                        githubResult.innerHTML = `
+
+                                            <div style="
+                                                padding:16px;
+                                                background:#f0fdf4;
+                                                border:1px solid #bbf7d0;
+                                                border-radius:10px;
+                                                color:#166534;
+                                            ">
+
+                                                <strong style="
+                                                    font-size:16px;
+                                                ">
+                                                    ✓ Project Evidence Verified
+                                                </strong>
+
+                                                <p style="
+                                                    margin-top:8px;
+                                                    margin-bottom:14px;
+                                                ">
+                                                    SABIT verified evidence from your GitHub repository.
+                                                </p>
+
+                                                <div style="
+                                                    display:grid;
+                                                    gap:8px;
+                                                    font-size:13px;
+                                                    color:#374151;
+                                                ">
+
+                                                    <div>
+                                                        <strong>
+                                                            Evidence quality:
+                                                        </strong>
+
+                                                        ${githubData.evidence_score || 0}/100
+                                                    </div>
+
+                                                    <div>
+                                                        <strong>
+                                                            Languages:
+                                                        </strong>
+
+                                                        ${
+                                                            githubData.languages &&
+                                                            githubData.languages.length
+                                                                ? githubData.languages.join(", ")
+                                                                : "Not detected"
+                                                        }
+                                                    </div>
+
+                                                    <div>
+                                                        <strong>
+                                                            Commits checked:
+                                                        </strong>
+
+                                                        ${githubData.commit_count || 0}
+                                                    </div>
+
+                                                    <div>
+                                                        <strong>
+                                                            Source-code evidence:
+                                                        </strong>
+
+                                                        ${
+                                                            githubData.evidence_files &&
+                                                            githubData.evidence_files.length
+                                                                ? githubData.evidence_files
+                                                                    .filter(
+                                                                        file =>
+                                                                            file.endsWith(".py")
+                                                                    )
+                                                                    .join(", ") ||
+                                                                    "Python implementation detected"
+                                                                : "Python implementation detected"
+                                                        }
+                                                    </div>
+
+                                                    <div>
+                                                        <strong>
+                                                            Dependency evidence:
+                                                        </strong>
+
+                                                        ${
+                                                            githubData.evidence_files &&
+                                                            githubData.evidence_files.includes(
+                                                                "requirements.txt"
+                                                            )
+                                                                ? "requirements.txt"
+                                                                : "None"
+                                                        }
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        `;
+
+                                        verifyGithubButton.textContent =
+                                            "GitHub Verified ✓";
+
+                                        /* =========================
+                                           READINESS UPDATE
+                                        ========================= */
+
+                                        const readinessDisplay =
+                                            document.getElementById(
+                                                "readinessScoreDisplay"
+                                            );
+
+                                        const readinessProgress =
+                                            document.getElementById(
+                                                "readinessProgress"
+                                            );
+
+                                        if (readinessDisplay) {
+
+                                            try {
+
+                                                const verifiedSkills =
+                                                    requiredSkills.filter(
+                                                        skill =>
+                                                            !skillGaps.includes(
+                                                                skill
+                                                            )
+                                                    );
+
+                                                const readinessResponse =
+                                                    await fetch(
+                                                        `${API_BASE_URL}/readiness`,
+                                                        {
+                                                            method:"POST",
+
+                                                            headers:{
+                                                                "Content-Type":
+                                                                    "application/json"
+                                                            },
+
+                                                            body:
+                                                                JSON.stringify({
+                                                                    required_skills:
+                                                                        requiredSkills,
+
+                                                                    verified_skills:
+                                                                        verifiedSkills,
+
+                                                                    project_completed:
+                                                                        true,
+
+                                                                    github_verified:
+                                                                        true
+                                                                })
+                                                        }
+                                                    );
+
+                                                const readinessData =
+                                                    await readinessResponse.json();
+
+                                                if (!readinessResponse.ok) {
+
+                                                    throw new Error(
+                                                        readinessData.detail ||
+                                                        "Could not calculate readiness score."
+                                                    );
+                                                }
+
+                                                const verifiedScore =
+                                                    readinessData.readiness_score;
+
+                                                readinessDisplay.textContent =
+                                                    `${verifiedScore}%`;
+
+                                                if (readinessProgress) {
+
+                                                    readinessProgress.style.width =
+                                                        `${verifiedScore}%`;
+                                                }
+
+                                                const oldMessage =
+                                                    document.getElementById(
+                                                        "readinessUpdateMessage"
+                                                    );
+
+                                                if (oldMessage) {
+                                                    oldMessage.remove();
+                                                }
+
+                                                const scoreMessage =
+                                                    document.createElement(
+                                                        "div"
+                                                    );
+
+                                                scoreMessage.id =
+                                                    "readinessUpdateMessage";
+
+                                                scoreMessage.style.cssText = `
+                                                    margin-top:8px;
+                                                    font-size:13px;
+                                                    color:#166534;
+                                                    font-weight:600;
+                                                `;
+
+                                                scoreMessage.textContent =
+                                                    "Readiness updated · GitHub evidence verified";
+
+                                                readinessDisplay
+                                                    .parentElement
+                                                    .appendChild(
+                                                        scoreMessage
+                                                    );
+
+                                            } catch (error) {
+
+                                                console.error(
+                                                    "Readiness calculation error:",
+                                                    error
+                                                );
+                                            }
+                                        }
+
+                                        /* =========================
+                                           SKILL PASSPORT
+                                        ========================= */
+
+                                        const passportButton =
+                                            document.createElement(
+                                                "button"
+                                            );
+
+                                        passportButton.type =
+                                            "button";
+
+                                        passportButton.textContent =
+                                            "Add to Skill Passport →";
+
+                                        passportButton.style.cssText = `
+                                            margin-top:12px;
+                                            padding:10px 16px;
+                                            border:none;
+                                            border-radius:8px;
+                                            background:#111827;
+                                            color:white;
+                                            cursor:pointer;
+                                            font-weight:600;
+                                        `;
+
+                                        githubResult.appendChild(
+                                            passportButton
+                                        );
+
+                                        passportButton.addEventListener(
+                                            "click",
+                                            async function () {
+
+                                                passportButton.disabled =
+                                                    true;
+
+                                                passportButton.textContent =
+                                                    "Adding to Passport...";
+
+                                                try {
+
+                                                    const skillToVerify =
+                                                        skillGaps[0] ||
+                                                        "Deep Learning";
+
+                                                    const passportResponse =
+                                                        await fetch(
+                                                            `${API_BASE_URL}/skill-passport`,
+                                                            {
+                                                                method:"POST",
+
+                                                                headers:{
+                                                                    "Content-Type":
+                                                                        "application/json"
+                                                                },
+
+                                                                body:
+                                                                    JSON.stringify({
+                                                                        student_name:
+                                                                            studentName,
+
+                                                                        verified_skills:
+                                                                            [
+                                                                                skillToVerify
+                                                                            ],
+
+                                                                        learning_skills:
+                                                                            []
+                                                                    })
+                                                            }
+                                                        );
+
+                                                    const passportData =
+                                                        await passportResponse.json();
+
+                                                    if (!passportResponse.ok) {
+
+                                                        throw new Error(
+                                                            passportData.detail ||
+                                                            "Could not create Skill Passport."
+                                                        );
+                                                    }
+
+                                                    passportButton.textContent =
+                                                        "✓ Added to Skill Passport";
+
+                                                    passportButton.style.background =
+                                                        "#166534";
+
+                                                    const passportSkills =
+                                                        document.getElementById(
+                                                            "passportSkills"
+                                                        );
+
+                                                    if (passportSkills) {
+
+                                                        const existingSkills =
+                                                            Array.from(
+                                                                passportSkills.querySelectorAll(
+                                                                    ".passport-skill span"
+                                                                )
+                                                            ).map(
+                                                                skill =>
+                                                                    skill.textContent
+                                                                        .trim()
+                                                                        .toLowerCase()
+                                                            );
+
+                                                        if (
+                                                            !existingSkills.includes(
+                                                                skillToVerify.toLowerCase()
+                                                            )
+                                                        ) {
+
+                                                            const newSkill =
+                                                                document.createElement(
+                                                                    "div"
+                                                                );
+
+                                                            newSkill.className =
+                                                                "passport-skill";
+
+                                                            newSkill.innerHTML = `
+                                                                <span>
+                                                                    ${skillToVerify}
+                                                                </span>
+
+                                                                <b>
+                                                                    VERIFIED ✓
+                                                                </b>
+                                                            `;
+
+                                                            passportSkills.appendChild(
+                                                                newSkill
+                                                            );
+                                                        }
+                                                    }
+
+                                                } catch (error) {
+
+                                                    console.error(
+                                                        "Passport error:",
+                                                        error
+                                                    );
+
+                                                    passportButton.disabled =
+                                                        false;
+
+                                                    passportButton.textContent =
+                                                        "Add to Skill Passport →";
+
+                                                    alert(
+                                                        error.message
+                                                    );
+                                                }
+                                            }
+                                        );
+
+                                    } else {
+
+                                        githubResult.innerHTML = `
+
+                                            <div style="
+                                                padding:14px;
+                                                background:#fff7ed;
+                                                border:1px solid #fed7aa;
+                                                border-radius:10px;
+                                                color:#9a3412;
+                                            ">
+
+                                                <strong>
+                                                    Evidence not verified
+                                                </strong>
+
+                                                <p style="
+                                                    margin-bottom:0;
+                                                ">
+                                                    ${
+                                                        githubData.message ||
+                                                        "Required evidence is missing."
+                                                    }
+                                                </p>
+
+                                            </div>
+                                        `;
+                                    }
+
+                                } catch (error) {
+
+                                    console.error(
+                                        "GitHub verification error:",
+                                        error
+                                    );
+
+                                    githubResult.innerHTML = `
+                                        <p style="
+                                            color:#b42318;
+                                            line-height:1.5;
+                                        ">
+                                            ${error.message}
+                                        </p>
+                                    `;
+
+                                } finally {
+
+                                    verifyGithubButton.disabled =
+                                        false;
+
+                                    if (
+                                        verifyGithubButton.textContent !==
+                                        "GitHub Verified ✓"
+                                    ) {
+
+                                        verifyGithubButton.textContent =
+                                            "Verify GitHub Project →";
+                                    }
+                                }
+                            }
+                        );
+                    }
 
                 } catch (error) {
 
-                    console.error(error);
+                    console.error(
+                        "Analysis error:",
+                        error
+                    );
 
                     message.innerHTML = `
                         <p style="
-                            color: #b42318;
-                            line-height: 1.5;
+                            color:#b42318;
+                            line-height:1.5;
                         ">
                             ${error.message}
                         </p>
@@ -1065,11 +1319,11 @@ if (passportSkills) {
 
                 } finally {
 
-                    startAnalysisButton.disabled = false;
+                    startAnalysisButton.disabled =
+                        false;
 
                     startAnalysisButton.textContent =
                         "Analyze Resume →";
-
                 }
 
             }

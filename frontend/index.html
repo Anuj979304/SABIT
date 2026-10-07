@@ -2,180 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SABIT — Prove Your Skills</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SABIT — Career Evidence System</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header class="top-nav">
+    <!-- TOP BAR -->
+
+    <header class="topbar">
 
         <div class="brand">
-            <div class="brand-mark">S</div>
+            <span class="brand-mark">S</span>
 
             <div>
-                <div class="brand-name">SABIT</div>
-                <div class="brand-tagline">Skill hai? Sabit karo.</div>
+                <strong>SABIT</strong>
+                <small>CAREER EVIDENCE SYSTEM</small>
             </div>
         </div>
 
-        <nav class="main-nav">
-            <a href="#overview" class="active">Overview</a>
-            <a href="#evidence">Evidence</a>
-            <a href="#proof">Proof Lab</a>
-            <a href="#passport">Passport</a>
-        </nav>
-
-        <div class="nav-profile">
-            <div class="profile-avatar">S</div>
-            <span>Sumit</span>
+        <div class="profile">
+    <span id="profileName">STUDENT PROFILE</span>
+            <span class="profile-dot"></span>
         </div>
 
     </header>
 
 
+    <!-- HERO -->
+
     <main>
 
-        <section class="hero" id="overview">
+        <section class="hero">
 
-            <div class="hero-left">
-
-                <div class="hero-label">
-                    <span class="live-dot"></span>
-                    CAREER EVIDENCE SYSTEM
-                </div>
-
-                <h1>
-                    Don't just say<br>
-                    <span>you know it.</span><br>
-                    Prove it.
-                </h1>
-
-                <p class="hero-description">
-                    SABIT analyzes your resume, projects and GitHub
-                    to find the skills you can actually demonstrate —
-                    and the ones you still need to prove.
-                </p>
-
-                <div class="hero-actions">
-
-                    <button class="primary-button">
-                        Analyze my skills
-                        <span>→</span>
-                    </button>
-
-                    <button class="secondary-link">
-                        See how SABIT works
-                        <span>↓</span>
-                    </button>
-
-                </div>
-
+            <div class="hero-label">
+                SABIT / 01 — START HERE
             </div>
 
+            <h1>
+                Don't just claim<br>
+                <span>your skills.</span>
+            </h1>
 
-            <div class="evidence-preview">
+            <p class="hero-text">
+                SABIT finds the gap between what your resume says
+                and what you can actually prove.
+            </p>
 
-                <div class="preview-top">
-                    <span>CAREER EVIDENCE</span>
-                    <span class="verified-label">● LIVE ANALYSIS</span>
+            <button class="primary-button">
+                Analyze my skills
+                <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- EVIDENCE FLOW -->
+
+        <section class="evidence-flow">
+
+            <div class="section-label">
+                HOW SABIT WORKS
+            </div>
+
+            <div class="flow-grid">
+
+                <div class="flow-item">
+                    <span class="flow-number">01</span>
+                    <strong>CLAIM</strong>
+                    <p>
+                        What your resume says you know.
+                    </p>
                 </div>
 
-                <div class="role-heading">
+                <div class="flow-line">→</div>
 
-                    <div>
-                        <small>TARGET ROLE</small>
-                        <h3>AI Engineer</h3>
-                    </div>
-
-                    <div class="evidence-score">
-                        <strong>68</strong>
-                        <span>evidence</span>
-                    </div>
-
+                <div class="flow-item">
+                    <span class="flow-number">02</span>
+                    <strong>GAP</strong>
+                    <p>
+                        What your target role still requires.
+                    </p>
                 </div>
 
+                <div class="flow-line">→</div>
 
-                <div class="evidence-list">
-
-                    <div class="evidence-row">
-
-                        <div class="skill-name">
-                            <span class="skill-icon verified">✓</span>
-                            Python
-                        </div>
-
-                        <span class="proof-status verified-text">
-                            VERIFIED
-                        </span>
-
-                    </div>
-
-
-                    <div class="evidence-row">
-
-                        <div class="skill-name">
-                            <span class="skill-icon verified">✓</span>
-                            Machine Learning
-                        </div>
-
-                        <span class="proof-status verified-text">
-                            VERIFIED
-                        </span>
-
-                    </div>
-
-
-                    <div class="evidence-row">
-
-                        <div class="skill-name">
-                            <span class="skill-icon verified">✓</span>
-                            FastAPI
-                        </div>
-
-                        <span class="proof-status verified-text">
-                            VERIFIED
-                        </span>
-
-                    </div>
-
-
-                    <div class="evidence-row">
-
-                        <div class="skill-name">
-                            <span class="skill-icon pending">?</span>
-                            AWS
-                        </div>
-
-                        <span class="proof-status pending-text">
-                            NEEDS PROOF
-                        </span>
-
-                    </div>
-
-
-                    <div class="evidence-row">
-
-                        <div class="skill-name">
-                            <span class="skill-icon missing">+</span>
-                            Docker
-                        </div>
-
-                        <span class="proof-status missing-text">
-                            NOT PROVEN
-                        </span>
-
-                    </div>
-
+                <div class="flow-item">
+                    <span class="flow-number">03</span>
+                    <strong>PROOF</strong>
+                    <p>
+                        A practical task built around the gap.
+                    </p>
                 </div>
 
+                <div class="flow-line">→</div>
 
-                <div class="preview-footer">
-                    <span>5 skills analyzed</span>
-                    <span>2 need proof →</span>
+                <div class="flow-item">
+                    <span class="flow-number">04</span>
+                    <strong>VERIFY</strong>
+                    <p>
+                        SABIT checks your actual evidence.
+                    </p>
+                </div>
+
+                <div class="flow-line">→</div>
+
+                <div class="flow-item">
+                    <span class="flow-number">05</span>
+                    <strong>PASSPORT</strong>
+                    <p>
+                        Verified skills become career proof.
+                    </p>
                 </div>
 
             </div>
@@ -183,70 +127,112 @@
         </section>
 
 
-        <section class="insight-section" id="evidence">
+        <!-- PROFILE -->
 
-            <div class="section-heading">
+        <section class="profile-section">
+
+            <div class="section-label">
+                YOUR CAREER EVIDENCE
+            </div>
+
+            <div class="profile-header">
 
                 <div>
-                    <span class="section-number">01</span>
-                    <span class="section-label">WHAT SABIT FOUND</span>
+                    <span class="mini-label">
+                        TARGET ROLE
+                    </span>
+
+                    <h2>AI Engineer</h2>
                 </div>
 
-                <h2>
-                    Your resume tells one story.<br>
-                    Your evidence tells another.
-                </h2>
+                <div class="evidence-score">
+
+                    <span class="mini-label">
+                        EVIDENCE READINESS
+                    </span>
+
+                    <strong>68%</strong>
+
+                </div>
 
             </div>
 
 
-            <div class="insight-grid">
+            <div class="evidence-summary">
 
-                <div class="insight-main">
+                <div>
+                    <strong>6</strong>
+                    <span>VERIFIED</span>
+                </div>
 
-                    <div class="insight-icon">!</div>
+                <div>
+                    <strong>2</strong>
+                    <span>NEED PROOF</span>
+                </div>
 
-                    <div>
+                <div>
+                    <strong>4</strong>
+                    <span>NOT YET SHOWN</span>
+                </div>
 
-                        <span class="insight-label">
-                            EVIDENCE GAP
-                        </span>
+            </div>
 
-                        <h3>
-                            You mention AWS,
-                            but your portfolio doesn't prove it yet.
-                        </h3>
+        </section>
 
-                        <p>
-                            SABIT found AWS in your skill profile,
-                            but couldn't find enough project evidence
-                            to verify practical usage.
-                        </p>
 
-                    </div>
+        <!-- EVIDENCE GAP -->
+
+        <section class="gap-section">
+
+            <div class="section-label">
+                01 / EVIDENCE GAP
+            </div>
+
+            <div class="gap-layout">
+
+                <div class="gap-main">
+
+                    <span class="gap-symbol">!</span>
+
+                    <h2>
+                        Your claims and your evidence
+                        don't always match.
+                    </h2>
+
+                    <p>
+                        SABIT doesn't punish missing skills.
+                        It identifies what is missing and gives
+                        you a practical way to prove it.
+                    </p>
 
                 </div>
 
 
-                <div class="insight-side">
+                <div class="gap-card">
 
-                    <div class="mini-label">
-                        WHAT THIS MEANS
+                    <div class="card-label">
+                        NEEDS PROOF
                     </div>
 
-                    <div class="meaning-row">
-                        <span>Claimed</span>
-                        <strong>AWS</strong>
+                    <h3>AWS</h3>
+
+                    <div class="evidence-row">
+                        <span>Resume</span>
+                        <b class="yes">✓</b>
                     </div>
 
-                    <div class="meaning-row">
-                        <span>Evidence</span>
-                        <strong class="orange">Limited</strong>
+                    <div class="evidence-row">
+                        <span>Project</span>
+                        <b>?</b>
                     </div>
 
-                    <div class="meaning-row">
-                        <span>Next step</span>
-                        <strong>Build → Verify</strong>
+                    <div class="evidence-row">
+                        <span>GitHub</span>
+                        <b class="no">×</b>
+                    </div>
+
+                    <div class="gap-status">
+                        LIMITED EVIDENCE
                     </div>
 
                 </div>
@@ -256,30 +242,25 @@
         </section>
 
 
-        <section class="proof-section" id="proof">
+        <!-- PROOF LAB -->
 
-            <div class="section-heading horizontal">
+        <section class="proof-section">
 
-                <div>
-                    <span class="section-number">02</span>
-                    <span class="section-label">PROOF LAB</span>
-                </div>
-
-                <p>
-                    Short projects designed to turn
-                    a skill claim into evidence.
-                </p>
-
+            <div class="section-label">
+                02 / PROOF LAB
             </div>
 
+            <div class="proof-layout">
 
-            <div class="proof-card">
+                <div class="proof-number">
+                    #04
+                </div>
 
-                <div class="proof-info">
+                <div class="proof-content">
 
-                    <div class="proof-badge">
-                        NEXT PROOF
-                    </div>
+                    <span class="mini-label">
+                        RECOMMENDED PROOF
+                    </span>
 
                     <h2>
                         Dockerize a FastAPI Application
@@ -287,82 +268,53 @@
 
                     <p>
                         Build a small API, containerize it with Docker,
-                        push the repository to GitHub and submit it to SABIT
-                        for verification.
+                        push the repository to GitHub and submit it
+                        to SABIT for verification.
                     </p>
 
                     <div class="proof-meta">
-                        <span>90–120 min</span>
-                        <span>Docker</span>
-                        <span>GitHub</span>
-                        <span>Automated verification</span>
+
+                        <span>90–120 MIN</span>
+                        <span>DOCKER</span>
+                        <span>GITHUB</span>
+                        <span>AUTOMATED CHECK</span>
+
                     </div>
 
-                    <button class="proof-button">
+                    <button class="secondary-button">
                         Start this proof
                         <span>→</span>
                     </button>
 
                 </div>
 
-
-                <div class="proof-steps">
-
-                    <div class="step completed">
-
-                        <span>01</span>
-
-                        <div>
-                            <strong>Build</strong>
-                            <small>Create the application</small>
-                        </div>
-
-                        <b>✓</b>
-
-                    </div>
+            </div>
 
 
-                    <div class="step">
+            <div class="proof-steps">
 
-                        <span>02</span>
+                <div>
+                    <span>01</span>
+                    <strong>BUILD</strong>
+                    <p>Create the application</p>
+                </div>
 
-                        <div>
-                            <strong>Deploy</strong>
-                            <small>Containerize with Docker</small>
-                        </div>
+                <div>
+                    <span>02</span>
+                    <strong>DEPLOY</strong>
+                    <p>Containerize the application</p>
+                </div>
 
-                        <b>→</b>
+                <div>
+                    <span>03</span>
+                    <strong>SUBMIT</strong>
+                    <p>Connect your GitHub repo</p>
+                </div>
 
-                    </div>
-
-
-                    <div class="step">
-
-                        <span>03</span>
-
-                        <div>
-                            <strong>Submit</strong>
-                            <small>Connect your GitHub repo</small>
-                        </div>
-
-                        <b>→</b>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <span>04</span>
-
-                        <div>
-                            <strong>Verify</strong>
-                            <small>SABIT checks the evidence</small>
-                        </div>
-
-                        <b>→</b>
-
-                    </div>
-
+                <div>
+                    <span>04</span>
+                    <strong>VERIFY</strong>
+                    <p>SABIT checks the evidence</p>
                 </div>
 
             </div>
@@ -370,33 +322,27 @@
         </section>
 
 
-        <section class="passport-section" id="passport">
+        <!-- PASSPORT -->
 
-            <div class="passport-intro">
+        <section class="passport-section">
 
-                <span class="section-number">03</span>
-                <span class="section-label">SKILL PASSPORT</span>
-
-                <h2>
-                    Your skills,<br>
-                    backed by proof.
-                </h2>
-
-                <p>
-                    Every verified skill is connected to the
-                    evidence that earned it.
-                </p>
-
+            <div class="section-label">
+                03 / SKILL PASSPORT
             </div>
-
 
             <div class="passport">
 
-                <div class="passport-header">
+                <div class="passport-top">
 
                     <div>
-                        <small>VERIFIED SKILL PASSPORT</small>
-                        <h3>SUMIT SHUKLA</h3>
+                        <span class="mini-label">
+                            VERIFIED SKILL PASSPORT
+                        </span>
+
+               <h2 id="passportName">STUDENT PROFILE</h2>
+                        <p>
+                            AI ENGINEER TRACK
+                        </p>
                     </div>
 
                     <div class="passport-id">
@@ -406,7 +352,11 @@
                 </div>
 
 
-<div class="passport-skills" id="passportSkills"></div>
+                <div
+                    class="passport-skills"
+                    id="passportSkills"
+                >
+
                     <div class="passport-skill">
                         <span>Python</span>
                         <b>VERIFIED ✓</b>
@@ -427,12 +377,12 @@
                         <b>VERIFIED ✓</b>
                     </div>
 
-                    <div class="passport-skill pending-skill">
+                    <div class="passport-skill in-progress">
                         <span>AWS</span>
                         <b>IN PROGRESS</b>
                     </div>
 
-                    <div class="passport-skill pending-skill">
+                    <div class="passport-skill not-proven">
                         <span>Docker</span>
                         <b>NOT PROVEN</b>
                     </div>
@@ -441,8 +391,15 @@
 
 
                 <div class="passport-footer">
-                    <span>Generated by SABIT</span>
-                    <span>Evidence-backed profile</span>
+
+                    <span>
+                        Every verified skill has traceable evidence.
+                    </span>
+
+                    <span>
+                        UPDATED 07 OCT 2026
+                    </span>
+
                 </div>
 
             </div>
@@ -450,21 +407,22 @@
         </section>
 
 
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div>
+                <strong>SABIT</strong>
+                <span>Skill hai? Sabit karo.</span>
+            </div>
+
+            <span>
+                CAREER EVIDENCE SYSTEM / 2026
+            </span>
+
+        </footer>
+
     </main>
-
-
-    <footer>
-
-        <div>
-            <strong>SABIT</strong>
-            <span>Skill hai? Sabit karo.</span>
-        </div>
-
-        <span>
-            AI-powered career evidence platform
-        </span>
-
-    </footer>
 
 
     <script src="script.js"></script>
