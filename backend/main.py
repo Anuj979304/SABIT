@@ -83,14 +83,19 @@ SKILLS = [
     "Python",
     "Java",
     "C++",
+    "JavaScript",
     "SQL",
+    "Excel",
+    "HTML",
+    "CSS",
     "Machine Learning",
     "Deep Learning",
     "AWS",
     "Docker",
     "Git",
     "React",
-    "FastAPI"
+    "FastAPI",
+    "OpenCV"
 ]
 
 
@@ -106,6 +111,7 @@ async def analyze_skills(file: UploadFile = File(...)):
 
     text_lower = text.lower()
 
+    # Skill aliases and related technologies
     # Skill aliases and related technologies
     skill_aliases = {
 
@@ -126,12 +132,40 @@ async def analyze_skills(file: UploadFile = File(...)):
             "cpp"
         ],
 
+        "JavaScript": [
+            "javascript",
+            "java script",
+            "js",
+            "ecmascript"
+        ],
+
         "SQL": [
             "sql",
             "mysql",
             "postgresql",
             "postgres",
-            "database"
+            "database",
+            "database management"
+        ],
+
+        "Excel": [
+            "excel",
+            "microsoft excel",
+            "ms excel",
+            "spreadsheets",
+            "spreadsheet"
+        ],
+
+        "HTML": [
+            "html",
+            "html5",
+            "hypertext markup language"
+        ],
+
+        "CSS": [
+            "css",
+            "css3",
+            "cascading style sheets"
         ],
 
         "Machine Learning": [
@@ -171,7 +205,8 @@ async def analyze_skills(file: UploadFile = File(...)):
             "docker",
             "dockerfile",
             "containerization",
-            "containerized"
+            "containerized",
+            "containers"
         ],
 
         "Git": [
@@ -192,6 +227,13 @@ async def analyze_skills(file: UploadFile = File(...)):
             "fast api",
             "rest api",
             "restful api"
+        ],
+
+        "OpenCV": [
+            "opencv",
+            "cv2",
+            "computer vision",
+            "image processing"
         ]
     }
 
@@ -226,9 +268,26 @@ ROLE_SKILLS = {
         "AWS"
     ],
 
+    "Machine Learning Engineer": [
+        "Python",
+        "Machine Learning",
+        "Deep Learning",
+        "SQL",
+        "Docker",
+        "AWS"
+    ],
+
     "Data Scientist": [
         "Python",
         "SQL",
+        "Machine Learning",
+        "Deep Learning"
+    ],
+
+    "Data Analyst": [
+        "Python",
+        "SQL",
+        "Excel",
         "Machine Learning"
     ],
 
@@ -238,6 +297,51 @@ ROLE_SKILLS = {
         "SQL",
         "Docker",
         "Git"
+    ],
+
+    "Full Stack Developer": [
+        "Python",
+        "JavaScript",
+        "SQL",
+        "React",
+        "FastAPI",
+        "Git"
+    ],
+
+    "Frontend Developer": [
+        "JavaScript",
+        "React",
+        "HTML",
+        "CSS",
+        "Git"
+    ],
+
+    "DevOps Engineer": [
+        "Docker",
+        "AWS",
+        "Git",
+        "Python"
+    ],
+
+    "Cloud Engineer": [
+        "AWS",
+        "Docker",
+        "Python",
+        "Git"
+    ],
+
+    "NLP Engineer": [
+        "Python",
+        "Machine Learning",
+        "Deep Learning",
+        "SQL"
+    ],
+
+    "Computer Vision Engineer": [
+        "Python",
+        "Machine Learning",
+        "Deep Learning",
+        "OpenCV"
     ]
 }
 
@@ -281,12 +385,40 @@ async def skill_gap(
             "cpp"
         ],
 
+        "JavaScript": [
+            "javascript",
+            "java script",
+            "js",
+            "ecmascript"
+        ],
+
         "SQL": [
             "sql",
             "mysql",
             "postgresql",
             "postgres",
-            "database"
+            "database",
+            "database management"
+        ],
+
+        "Excel": [
+            "excel",
+            "microsoft excel",
+            "ms excel",
+            "spreadsheets",
+            "spreadsheet"
+        ],
+
+        "HTML": [
+            "html",
+            "html5",
+            "hypertext markup language"
+        ],
+
+        "CSS": [
+            "css",
+            "css3",
+            "cascading style sheets"
         ],
 
         "Machine Learning": [
@@ -326,7 +458,8 @@ async def skill_gap(
             "docker",
             "dockerfile",
             "containerization",
-            "containerized"
+            "containerized",
+            "containers"
         ],
 
         "Git": [
@@ -347,6 +480,13 @@ async def skill_gap(
             "fast api",
             "rest api",
             "restful api"
+        ],
+
+        "OpenCV": [
+            "opencv",
+            "cv2",
+            "computer vision",
+            "image processing"
         ]
     }
 
@@ -375,9 +515,13 @@ async def skill_gap(
         "target_role": target_role,
         "student_skills": student_skills,
         "required_skills": required_skills,
-        "skill_gaps": missing_skills
+        "missing_skills": missing_skills,
+        "message": (
+            "No major skill gaps found"
+            if not missing_skills
+            else "Some skills need stronger evidence"
+        )
     }
-
 
 # --------------------------------------------------
 # MICRO PROJECTS
