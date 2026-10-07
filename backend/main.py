@@ -744,44 +744,52 @@ def get_micro_project(skill: str):
 # --------------------------------------------------
 # GITHUB VERIFICATION
 # --------------------------------------------------
+# --------------------------------------------------
+# GITHUB VERIFICATION
+# --------------------------------------------------
+
 @app.get("/verify-github")
-def verify_github(repo_url: str):
+async def verify_github(repo_url: str):
+
+    import requests
+    import re
+
+    # -----------------------------------------
+    # 1. Validate GitHub URL
+    # -----------------------------------------
+
+    match = re.match(
+        r"https?://github\.com/([^/]+)/([^/#]+)",
+        repo_url.strip()
+    )
+
+    if not match:
+        return {
+            "verified": False,
+            "verification": "Invalid GitHub repository URL."
+        }
+
+    owner = match.group(1)
+    repo = match.group(2).replace(".git", "")
+
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "SABIT"
+    }
+
+    api_base = (
+        f"https://api.github.com/repos/"
+        f"{owner}/{repo}"
+    )
 
     try:
 
-        repo_url = repo_url.strip().rstrip("/")
-
-        if not repo_url.startswith("https://github.com/"):
-            return {
-                "verified": False,
-                "message": "Please enter a valid GitHub repository URL."
-            }
-
-        parts = repo_url.replace(
-            "https://github.com/",
-            ""
-        ).split("/")
-
-        if len(parts) < 2:
-            return {
-                "verified": False,
-                "message": "Invalid GitHub repository URL."
-            }
-
-        owner = parts[0]
-        repo = parts[1]
-
-        headers = {
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "SABIT"
-        }
-
         # -----------------------------------------
-        # 1. Repository information
+        # 2. Check repository
         # -----------------------------------------
 
         repo_response = requests.get(
-            f"https://api.github.com/repos/{owner}/{repo}",
+            api_base,
             headers=headers,
             timeout=10
         )
@@ -789,71 +797,153 @@ def verify_github(repo_url: str):
         if repo_response.status_code != 200:
             return {
                 "verified": False,
-                "message": "GitHub repository could not be accessed."
+                "verification":
+                    "GitHub repository could not be accessed."
             }
 
-        repository = repo_response.json()
+        repo_data = repo_response.json()
+
+        # Use the repository's actual default branch
+        default_branch = repo_data.get(
+            "default_branch",
+            "main"
+        )
 
         # -----------------------------------------
-        # 2. Repository files
+        # 3. Read complete repository tree
         # -----------------------------------------
 
-        contents_response = requests.get(
-            f"https://api.github.com/repos/{owner}/{repo}/contents",
+        tree_url = (
+            f"https://api.github.com/repos/"
+            f"{owner}/{repo}/git/trees/"
+            f"{default_branch}?recursive=1"
+        )
+
+        tree_response = requests.get(
+            tree_url,
             headers=headers,
             timeout=10
         )
 
-        if contents_response.status_code != 200:
+        if tree_response.status_code != 200:
             return {
                 "verified": False,
-                "message": "Could not read repository files."
+                "verification":
+                    "Repository found, but project files "
+                    "could not be read."
             }
 
-        files = contents_response.json()
+        tree_data = tree_response.json()
+
+        files = []
+
+        for item in tree_data.get("tree", []):
+
+            if item.get("type") == "blob":
+
+                files.append(
+                    item.get("path", "")
+                )
+
+        # -----------------------------------------
+        # 4. File names
+        # -----------------------------------------
 
         file_names = [
-            file.get("name", "").lower()
+            file.split("/")[-1].lower()
             for file in files
         ]
 
         # -----------------------------------------
-        # 3. Check README
+        # 5. Technical evidence
         # -----------------------------------------
 
-        has_readme = "readme.md" in file_names
-
-        # -----------------------------------------
-        # 4. Check technical evidence
-        # -----------------------------------------
-
-        evidence_file_names = [
+        technical_files = [
             "main.py",
             "app.py",
+            "server.py",
+            "api.py",
             "train.py",
+            "train_model.py",
             "model.py",
-            "requirements.txt",
-            "dockerfile",
             "inference.py",
             "predict.py",
+            "preprocess.py",
+            "pipeline.py",
+            "notebook.ipynb",
+            "dockerfile",
             "model.h5",
             "model.keras",
             "pytorch_model.bin"
         ]
 
-        evidence_files = [
+        technical_evidence = [
             file
-            for file in evidence_file_names
-            if file in file_names
+            for file in files
+            if file.split("/")[-1].lower()
+            in technical_files
         ]
 
         # -----------------------------------------
-        # 5. Detect programming languages
+        # 6. Data Science / ML evidence
+        # -----------------------------------------
+
+        ml_extensions = [
+            ".ipynb",
+            ".py",
+            ".csv",
+            ".parquet"
+        ]
+
+        ml_files = [
+            file
+            for file in files
+            if any(
+                file.lower().endswith(ext)
+                for ext in ml_extensions
+            )
+        ]
+
+        # -----------------------------------------
+        # 7. Dependency evidence
+        # -----------------------------------------
+
+        dependency_files = [
+            "requirements.txt",
+            "pyproject.toml",
+            "environment.yml",
+            "environment.yaml",
+            "package.json",
+            "pipfile"
+        ]
+
+        dependency_evidence = [
+            file
+            for file in files
+            if file.split("/")[-1].lower()
+            in dependency_files
+        ]
+
+        # -----------------------------------------
+        # 8. README evidence
+        # -----------------------------------------
+
+        readme_evidence = [
+            file
+            for file in files
+            if file.split("/")[-1].lower()
+            in [
+                "readme.md",
+                "readme.txt"
+            ]
+        ]
+
+        # -----------------------------------------
+        # 9. Detect programming languages
         # -----------------------------------------
 
         languages_response = requests.get(
-            f"https://api.github.com/repos/"
-            f"{owner}/{repo}/languages",
+            f"{api_base}/languages",
             headers=headers,
             timeout=10
         )
@@ -861,182 +951,156 @@ def verify_github(repo_url: str):
         languages = []
 
         if languages_response.status_code == 200:
+
             languages = list(
                 languages_response.json().keys()
             )
 
         # -----------------------------------------
-        # 6. Check project structure
+        # 10. Project structure
         # -----------------------------------------
 
-        project_structure = []
+        folders = set()
 
         for file in files:
-            name = file.get("name")
 
-            if name:
-                project_structure.append(name)
+            parts = file.split("/")
+
+            if len(parts) > 1:
+                folders.add(parts[0])
+
+        project_structure = sorted(
+            list(folders)
+        )
 
         # -----------------------------------------
-        # 7. Check commit history
+        # 11. Commit history
         # -----------------------------------------
 
         commits_response = requests.get(
-            f"https://api.github.com/repos/"
-            f"{owner}/{repo}/commits",
+            f"{api_base}/commits",
             headers=headers,
-            params={"per_page": 10},
+            params={"per_page": 100},
             timeout=10
         )
 
         commit_count = 0
 
         if commits_response.status_code == 200:
+
             commits = commits_response.json()
-            commit_count = len(commits)
+
+            if isinstance(commits, list):
+                commit_count = len(commits)
 
         # -----------------------------------------
-        # 8. Calculate evidence quality
+        # 12. Evidence scoring
         # -----------------------------------------
-
-       # -----------------------------------------
-# 8. Calculate evidence quality
-# -----------------------------------------
 
         evidence_score = 0
 
-        # README/documentation
-        if has_readme:
+        # README
+        if readme_evidence:
             evidence_score += 20
 
         # Strong technical evidence
-        technical_evidence_files = [
-            "main.py",
-            "app.py",
-            "train.py",
-            "model.py",
-            "inference.py",
-            "predict.py",
-            "model.h5",
-            "model.keras",
-            "pytorch_model.bin",
-            "dockerfile"
-        ]
+        if technical_evidence:
+            evidence_score += 35
 
-        strong_evidence = [
-            file
-            for file in evidence_files
-            if file in technical_evidence_files
-        ]
-
-        python_files = [
-            file
-            for file in file_names
-            if file.endswith(".py")
-        ]
-
-        strong_evidence = [
-            file
-            for file in evidence_files
-            if file in technical_evidence_files
-        ]
-
-        if len(strong_evidence) >= 1:
-
-            evidence_score += 40
-
-        elif len(python_files) >= 1:
-
+        # Data Science / ML files
+        elif len(ml_files) >= 2:
             evidence_score += 30
 
-        # Programming language detected
-        if len(languages) >= 1:
+        # Dependencies
+        if dependency_evidence:
             evidence_score += 15
 
-        # Project has multiple files/folders
-        if len(project_structure) >= 3:
+        # Programming languages
+        if languages:
             evidence_score += 10
 
-        # Meaningful commit history
+        # Project contains multiple files
+        if len(files) >= 5:
+            evidence_score += 5
+
+        # Commit history
         if commit_count >= 2:
             evidence_score += 15
 
-            verified = (
-                has_readme
-                and (
-                    len(strong_evidence) >= 1
-                    or len(python_files) >= 1
+        evidence_score = min(
+            evidence_score,
+            100
+        )
+
+        # -----------------------------------------
+        # 13. Verification decision
+        # -----------------------------------------
+
+        has_project_evidence = (
+            len(technical_evidence) >= 1
+            or len(ml_files) >= 2
+        )
+
+        verified = (
+            has_project_evidence
+            and evidence_score >= 60
+        )
+
+        # -----------------------------------------
+        # 14. Response
+        # -----------------------------------------
+
+        return {
+
+            "verified": verified,
+
+            "repository":
+                f"{owner}/{repo}",
+
+            "files_found":
+                len(files),
+
+            "evidence_files":
+                (
+                    technical_evidence
+                    + dependency_evidence
+                    + readme_evidence
+                ),
+
+            "languages":
+                languages,
+
+            "project_structure":
+                project_structure,
+
+            "commit_count":
+                commit_count,
+
+            "evidence_score":
+                evidence_score,
+
+            "verification":
+                (
+                    "✓ Project Evidence Verified"
+                    if verified
+                    else
+                    "Repository found, but sufficient "
+                    "project evidence could not be verified."
                 )
-                and evidence_score >= 60
-            )
-
-        # -----------------------------------------
-        # 9. Successful verification
-        # -----------------------------------------
-
-        if verified:
-
-            return {
-                "verified": True,
-                "message": (
-                    "Project evidence verified successfully."
-                ),
-                "repository": repository.get(
-                    "full_name"
-                ),
-                "files_found": file_names,
-                "evidence_files": evidence_files,
-                "languages": languages,
-                "project_structure": project_structure,
-                "commit_count": commit_count,
-                "evidence_score": evidence_score,
-                "verification": [
-                    "README.md",
-                    "Technical source/evidence files",
-                    "Programming language detected",
-                    "Project structure checked",
-                    "Commit history checked"
-                ]
-            }
-
-        # -----------------------------------------
-        # 10. Verification failed
-        # -----------------------------------------
-
-        missing = []
-
-        if not has_readme:
-            missing.append("README.md")
-
-        if len(evidence_files) == 0:
-            missing.append(
-                "project evidence file "
-                "(Python source, model, requirements, "
-                "or Docker file)"
-            )
-
-        return {
-            "verified": False,
-            "message": (
-                "Repository found, but sufficient "
-                "project evidence could not be verified."
-            ),
-            "files_found": file_names,
-            "evidence_files": evidence_files,
-            "languages": languages,
-            "project_structure": project_structure,
-            "commit_count": commit_count,
-            "evidence_score": evidence_score,
-            "missing_files": missing
         }
 
-    except Exception as error:
+    except Exception as e:
 
         return {
-            "verified": False,
-            "message": str(error)
-        }
 
+            "verified": False,
+
+            "verification":
+                "GitHub verification failed.",
+
+            "error":
+                str(e)
+        }
 # --------------------------------------------------
 # SKILL PASSPORT
 # --------------------------------------------------
