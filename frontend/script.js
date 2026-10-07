@@ -1261,7 +1261,7 @@ if (
                                                 ">
                                                     ${
                                                         githubData.message ||
-                                                        "Required evidence is missing."
+                                                        "GitHub repository evidence could not be verified."
                                                     }
                                                 </p>
 
